@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pavan Bharadwaj Annambhotla | AI/ML Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Portfolio of Pavan Bharadwaj Annambhotla, AI/ML Engineer specializing in LLMs, RAG systems, multi-agent workflows, and cloud-native ML platforms."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --bg-main: #050505;
+      --bg-elevated: #0b0d10;
+      --card-bg: #101319;
+      --accent: #39ff14; /* neon green */
+      --accent-soft: rgba(57, 255, 20, 0.08);
+      --accent-border: rgba(57, 255, 20, 0.4);
+      --text-main: #f5f5f5;
+      --text-muted: #a0a0a0;
+      --text-soft: #7a7a7a;
+      --border-subtle: #22252c;
+      --shadow-soft: 0 24px 80px rgba(0, 0, 0, 0.7);
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-pill: 999px;
+      --transition-fast: 0.18s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      scroll-behavior: smooth;
+      background: radial-gradient(circle at top left, #151824 0, #050505 50%);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5,5,5,0.94), rgba(5,5,5,0.8), transparent);
+      border-bottom: 1px solid rgba(60,60,60,0.4);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 40%;
+      border: 1px solid var(--accent-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 0 0, rgba(57,255,20,0.25), transparent 60%);
+      box-shadow: 0 0 24px rgba(57,255,20,0.45);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-text span:first-child {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .brand-text span:last-child {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.88rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--text-muted);
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--accent);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--accent-border);
+      background: radial-gradient(circle at top left, rgba(57,255,20,0.25), rgba(57,255,20,0.05));
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      display: none;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4rem 0 3rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.3fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.2rem 0.75rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--accent-border);
+      background: linear-gradient(90deg, rgba(57,255,20,0.16), rgba(57,255,20,0.03));
+      font-size: 0.75rem;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(57,255,20,0.9);
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw, 2.7rem);
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+      font-weight: 600;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-meta span::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      opacity: 0.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .btn-primary {
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: linear-gradient(120deg, var(--accent), #b6ff00);
+      color: #020202;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 0 32px rgba(57,255,20,0.45);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 0 40px rgba(57,255,20,0.7);
+    }
+
+    .btn-secondary {
+      padding: 0.7rem 1.2rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: rgba(11,13,16,0.7);
+      color: var(--text-main);
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-secondary span.icon {
+      font-size: 1rem;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(24,26,32,0.9);
+      border-color: var(--accent-border);
+      transform: translateY(-1px);
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.77rem;
+    }
+
+    .tag {
+      border-radius: var(--radius-pill);
+      padding: 0.25rem 0.7rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(11,13,17,0.9);
+      color: var(--text-soft);
+    }
+
+    .hero-right {
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+      background: radial-gradient(circle at top left, rgba(57,255,20,0.13), transparent 55%),
+                  linear-gradient(145deg, #050608, #0c1016 40%, #050608 85%);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-right-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 0.85rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .stat-card {
+      padding: 0.8rem 0.9rem;
+      border-radius: 16px;
+      background: rgba(4,4,5,0.6);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+      margin-bottom: 0.2rem;
+    }
+
+    .stat-value {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .stat-caption {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .hero-notes {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      border-radius: 14px;
+      padding: 0.8rem 0.95rem;
+      background: rgba(0,0,0,0.7);
+      border: 1px dashed rgba(255,255,255,0.14);
+    }
+
+    .hero-orb {
+      position: absolute;
+      inset: auto auto -60px -60px;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(57,255,20,0.45), transparent 60%);
+      opacity: 0.55;
+      filter: blur(1px);
+    }
+
+    /* Sections */
+    section {
+      padding: 2.75rem 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    .section-sub {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 28rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+      gap: 2rem;
+    }
+
+    .about-text p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .about-highlights {
+      display: grid;
+      gap: 0.7rem;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .about-highlights li {
+      list-style: none;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .about-highlights li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .about-panel {
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.2rem;
+      background: rgba(6, 8, 11, 0.9);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.83rem;
+      color: var(--text-soft);
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    .about-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .about-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .about-value {
+      font-weight: 500;
+      color: var(--text-main);
+      font-size: 0.86rem;
+    }
+
+    /* Skills */
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      padding: 1rem 1rem;
+      border-radius: var(--radius-lg);
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.86rem;
+    }
+
+    .skill-card h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .skill-card p {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .skill-tag {
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 1.1rem;
+    }
+
+    .project-card {
+      padding: 1.1rem 1.1rem;
+      border-radius: var(--radius-lg);
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      font-size: 0.86rem;
+    }
+
+    .project-tagline {
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+    }
+
+    .project-card h3 {
+      font-size: 0.98rem;
+    }
+
+    .project-metric {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .project-desc {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .project-meta {
+      margin-top: 0.35rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .project-meta span {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(0,0,0,0.5);
+    }
+
+    /* Experience */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1.5fr) minmax(0,1.5fr);
+      gap: 1.4rem;
+    }
+
+    .exp-card {
+      padding: 1rem;
+      border-radius: var(--radius-lg);
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.86rem;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .exp-role {
+      font-weight: 600;
+      font-size: 0.94rem;
+    }
+
+    .exp-company {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    .exp-meta {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      margin-bottom: 0.35rem;
+    }
+
+    .exp-list {
+      padding-left: 1.1rem;
+      font-size: 0.83rem;
+      color: var(--text-soft);
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    .exp-list li {
+      margin-bottom: 0.05rem;
+    }
+
+    /* Case Studies */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 1.1rem;
+    }
+
+    .case-card {
+      padding: 1rem 1.05rem;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, var(--accent-soft), rgba(7,9,12,1));
+      border: 1px solid var(--accent-border);
+      font-size: 0.86rem;
+    }
+
+    .case-label {
+      font-size: 0.76rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.3rem;
+    }
+
+    .case-card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .case-metric {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .case-points {
+      font-size: 0.83rem;
+      color: var(--text-soft);
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.25rem;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1.3fr) minmax(0,1.4fr);
+      gap: 1.6rem;
+    }
+
+    .contact-card {
+      padding: 1.1rem;
+      border-radius: var(--radius-lg);
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.86rem;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .contact-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.4rem;
+    }
+
+    .contact-pill {
+      border-radius: var(--radius-pill);
+      padding: 0.35rem 0.75rem;
+      border: 1px solid rgba(255,255,255,0.09);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .field-group label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .field-group input,
+    .field-group textarea {
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(5,6,8,0.8);
+      padding: 0.55rem 0.7rem;
+      font-size: 0.86rem;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .field-group input:focus,
+    .field-group textarea:focus {
+      border-color: var(--accent-border);
+      box-shadow: 0 0 0 1px rgba(57,255,20,0.25);
+    }
+
+    .field-group textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      padding: 1.1rem 0 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .footer span.highlight {
+      color: var(--accent);
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .about-grid,
+      .skill-grid,
+      .projects-grid,
+      .exp-grid,
+      .case-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-cta {
+        display: inline-flex;
+      }
+
+      .shell {
+        padding: 0 1.1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        justify-content: center;
+        width: 100%;
+      }
+
+      section {
+        padding: 2.2rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header>
+      <div class="shell">
+        <nav class="nav">
+          <div class="nav-left">
+            <div class="brand-mark">PB</div>
+            <div class="brand-text">
+              <span>Pavan Bharadwaj</span>
+              <span>AI / ML Engineer</span>
+            </div>
+          </div>
+          <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#case-studies">Case Studies</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <a href="#contact" class="nav-cta">Let’s talk</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="top">
+        <div class="shell">
+          <div class="hero-grid">
+            <div class="hero-left">
+              <div class="pill">
+                <span class="pill-dot"></span>
+                <span>Designing production-grade AI systems</span>
+              </div>
+              <h1 class="hero-title">
+                Pavan Bharadwaj<br />
+                <span>Annambhotla</span>
+              </h1>
+              <p class="hero-subtitle">
+                AI/ML Engineer with 4+ years building LLM-powered systems, RAG
+                pipelines, and event-driven microservices for high-volume, risk-sensitive environments.
+              </p>
+              <div class="hero-meta">
+                <span>Based in USA</span>
+                <span>Open to AI / ML / LLM Engineer roles</span>
+                <span>Focus: fraud, finance, decision automation</span>
+              </div>
+              <div class="hero-actions">
+                <a href="PAVAN BHARADWAJ_AI_ML_Engineer.pdf" class="btn-primary" download>
+                  <span>Download Resume</span>
+                  <span>⬇</span>
+                </a>
+                <a href="#contact" class="btn-secondary">
+                  <span class="icon">✉</span>
+                  <span>Contact Pavan</span>
+                </a>
+              </div>
+              <div class="hero-tags">
+                <span class="tag">LLMs & RAG Systems</span>
+                <span class="tag">Multi-Agent Workflows</span>
+                <span class="tag">Fraud & Risk Scoring</span>
+                <span class="tag">Azure & AWS</span>
+                <span class="tag">Kafka & Event-Driven Design</span>
+              </div>
+            </div>
+
+            <aside class="hero-right">
+              <div class="hero-right-inner">
+                <div class="stat-grid">
+                  <div class="stat-card">
+                    <div class="stat-label">Experience</div>
+                    <div class="stat-value">4+ yrs</div>
+                    <div class="stat-caption">AI/ML, backend, and data-intensive systems.</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-label">Scale</div>
+                    <div class="stat-value">5M+ /day</div>
+                    <div class="stat-caption">Transactions processed via Kafka microservices.</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-label">Latency</div>
+                    <div class="stat-value">&lt; 500ms</div>
+                    <div class="stat-caption">For high-throughput inference APIs.</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="stat-label">Impact</div>
+                    <div class="stat-value">30–40%</div>
+                    <div class="stat-caption">Efficiency and accuracy uplift across AI workflows.</div>
+                  </div>
+                </div>
+                <div class="hero-notes">
+                  I work across the full AI lifecycle: from data pipelines and GPU training to
+                  RAG design, deployment, monitoring, and explainability for regulated domains like payments and fraud.
+                </div>
+              </div>
+              <div class="hero-orb"></div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about">
+        <div class="shell">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">About</div>
+              <h2 class="section-title">Who I am as an engineer</h2>
+            </div>
+            <p class="section-sub">
+              I design AI systems that don’t just demo well, but survive real-world traffic,
+              compliance checks, and operational load.
+            </p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                I’m an AI/ML Engineer with hands-on experience building production systems that combine
+                traditional ML, LLMs, and event-driven architectures. My work spans fraud detection,
+                RAG-based knowledge tools, and multi-agent automation in high-volume financial environments.
+              </p>
+              <p>
+                I care about clear problem framing, measurable impact, and clean, observable systems. A lot of my time
+                goes into designing robust pipelines, optimizing GPU utilization, and making sure models can be monitored,
+                rolled back, and explained to non-technical stakeholders.
+              </p>
+              <p>
+                I enjoy working close to both data and infrastructure: designing features, tuning models, shipping APIs,
+                and hardening them with monitoring, logging, and incident playbooks.
+              </p>
+              <ul class="about-highlights">
+                <li>Reduced ML training time by 35% through optimized data flows and GPU usage.</li>
+                <li>Improved retrieval quality for enterprise RAG systems by ~30% via vector indexing and custom scoring.</li>
+                <li>Cut manual review time by nearly 50% via multi-agent workflows for KYC/AML investigations.</li>
+                <li>Reduced model-related incidents by 25% using drift monitoring and end-to-end observability.</li>
+              </ul>
+            </div>
+
+            <aside class="about-panel">
+              <div class="about-row">
+                <div class="about-label">Current focus</div>
+                <div class="about-value">LLM systems, RAG, automated risk and compliance workflows.</div>
+              </div>
+              <div class="about-row">
+                <div class="about-label">Recent domains</div>
+                <div class="about-value">Payments, wallets, fraud risk, dispute resolution.</div>
+              </div>
+              <div class="about-row">
+                <div class="about-label">I like working with</div>
+                <div class="about-value">Python, FastAPI, PyTorch, ONNX, Kafka, Kubernetes, Azure, AWS.</div>
+              </div>
+              <div class="about-row">
+                <div class="about-label">Education</div>
+                <div class="about-value">Master’s in Computer Science, Auburn University at Montgomery.</div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section id="skills">
+        <div class="shell">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Skills</div>
+              <h2 class="section-title">Tech I use to build systems</h2>
+            </div>
+            <p class="section-sub">
+              A mix of ML, LLM tooling, backend engineering, and cloud infrastructure for end-to-end delivery.
+            </p>
+          </div>
+
+          <div class="skill-grid">
+            <div class="skill-card">
+              <h3>AI / ML & LLMs</h3>
+              <p>Building and deploying models for fraud, risk, and search.</p>
+              <div class="skill-tags">
+                <span class="skill-tag">PyTorch Lightning</span>
+                <span class="skill-tag">TensorFlow Extended</span>
+                <span class="skill-tag">JAX</span>
+                <span class="skill-tag">ONNX Runtime</span>
+                <span class="skill-tag">TensorRT</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3>LLM & RAG Systems</h3>
+              <p>Designing retrieval pipelines and multi-agent workflows.</p>
+              <div class="skill-tags">
+                <span class="skill-tag">Azure OpenAI</span>
+                <span class="skill-tag">OpenAI API</span>
+                <span class="skill-tag">LangChain</span>
+                <span class="skill-tag">LangGraph</span>
+                <span class="skill-tag">Vector Search</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3>Backend & APIs</h3>
+              <p>Serving models and features through reliable services.</p>
+              <div class="skill-tags">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">FastAPI</span>
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">Go</span>
+                <span class="skill-tag">REST / gRPC</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3>Data & Messaging</h3>
+              <p>Feeding models with consistent, high-quality data.</p>
+              <div class="skill-tags">
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">Redis</span>
+                <span class="skill-tag">Kafka</span>
+                <span class="skill-tag">Airflow</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3>Cloud & DevOps</h3>
+              <p>Shipping and operating workloads in production.</p>
+              <div class="skill-tags">
+                <span class="skill-tag">Azure</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Kubernetes</span>
+                <span class="skill-tag">Terraform</span>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <h3>Observability & Safety</h3>
+              <p>Keeping models observable, debuggable, and safe.</p>
+              <div class="skill-tags">
+                <span class="skill-tag">MLflow</span>
+                <span class="skill-tag">Prometheus</span>
+                <span class="skill-tag">Grafana</span>
+                <span class="skill-tag">OpenTelemetry</span>
+                <span class="skill-tag">Drift Detection</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects">
+        <div class="shell">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Projects & Initiatives</div>
+              <h2 class="section-title">Selected work</h2>
+            </div>
+            <p class="section-sub">
+              A few examples of systems I’ve helped design and build around fraud, RAG, and automation.
+            </p>
+          </div>
+
+          <div class="projects-grid">
+  <article class="project-card">
+    <div class="project-tagline">Time-Series Forecasting</div>
+    <h3>COVID-19 Prediction Model</h3>
+    <p class="project-metric">
+      Forecasted case trends using ML techniques and statistical modeling.
+    </p>
+    <p class="project-desc">
+      Developed a data-driven forecasting pipeline using historical COVID-19 case data, applying ML regression and time-series analysis to predict future outbreak patterns.
+      Includes preprocessing steps, feature generation, and evaluation metrics to validate model performance.
+    </p>
+    <div class="project-meta">
+      <span>Python</span>
+      <span>Pandas</span>
+      <span>NumPy</span>
+      <span>Matplotlib</span>
+      <span>Machine Learning</span>
+    </div>
+    <a class="btn-secondary" href="https://github.com/Pavanannambhotla/Covid19_Prediction_code" target="_blank" style="margin-top:8px;">
+      <span>View on GitHub</span> ↗
+    </a>
+  </article>
+
+<article class="project-card">
+    <div class="project-tagline">RAG & Knowledge Automation</div>
+    <h3>Finance & Compliance RAG Assistant</h3>
+    <p class="project-metric">
+      Improved retrieval accuracy by 38% and reduced manual review cycles across 2024.
+    </p>
+    <p class="project-desc">
+      Designed a production-style Retrieval-Augmented Generation pipeline for finance and compliance teams. Combines document embeddings, vector search, re-ranking,
+      and LLM summarization to create a unified knowledge surface for analysts and investigators.
+    </p>
+    <div class="project-meta">
+      <span>Python</span>
+      <span>FastAPI</span>
+      <span>LangChain</span>
+      <span>RAG</span>
+      <span>OpenAI</span>
+    </div>
+    <a class="btn-secondary" href="https://github.com/Pavanannambhotla/finance_compliance_rag_assistant" target="_blank" style="margin-top:8px;">
+      <span>View on GitHub</span> ↗
+    </a>
+  </article>
+
+            <article class="project-card">
+              <div class="project-tagline">Multi-Agent Systems</div>
+              <h3>KYC / AML Investigation Automation</h3>
+              <p class="project-metric">Cut analyst review time by 50% over two quarters.</p>
+              <p class="project-desc">
+                Implemented multi-agent workflows orchestrating retrieval, classification, summarization, and escalation,
+                backed by observability and audit-friendly logging.
+              </p>
+              <div class="project-meta">
+                <span>LangChain</span>
+                <span>LangGraph</span>
+                <span>Azure OpenAI</span>
+                <span>Prometheus</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-tagline">High-Throughput APIs</div>
+              <h3>Payments & Refunds Microservices</h3>
+              <p class="project-metric">5M+ daily transactions, 99.9% uptime and improved response speed by 35%.</p>
+              <p class="project-desc">
+                Built event-driven microservices and optimized FastAPI-based services with async I/O, caching, and
+                connection pooling to handle peak payment and settlement traffic.
+              </p>
+              <div class="project-meta">
+                <span>FastAPI</span>
+                <span>Kafka</span>
+                <span>Docker</span>
+                <span>PostgreSQL</span>
+                <span>Jenkins</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience">
+        <div class="shell">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Experience</div>
+              <h2 class="section-title">Where I’ve been building</h2>
+            </div>
+            <p class="section-sub">
+              A mix of AI engineering and backend work in high-volume payment and fraud environments.
+            </p>
+          </div>
+
+          <div class="exp-grid">
+            <article class="exp-card">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-role">AI / ML Engineer</div>
+                  <div class="exp-company">PayPal · USA</div>
+                </div>
+                <div class="exp-meta">Jan 2024 – Present</div>
+              </div>
+              <ul class="exp-list">
+                <li>Designed RAG pipelines for finance and compliance, boosting retrieval accuracy by 38% and reducing manual review cycles.</li>
+                <li>Developed fraud-risk ML models with optimized feature pipelines, lowering false positives by 22% in high-volume streams.</li>
+                <li>Built multi-agent automation for KYC/AML investigations, cutting analyst review time by 50% over two quarters.</li>
+                <li>Implemented high-throughput inference services with FastAPI and vector caching, shrinking latency from 1.2s to &lt; 500ms.</li>
+                <li>Containerized AI microservices with Kubernetes and automated CI/CD, moving from monthly to weekly deployments.</li>
+              </ul>
+            </article>
+
+            <article class="exp-card">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-role">Software Engineer · AI & Backend</div>
+                  <div class="exp-company">Paytm · Hyderabad, India</div>
+                </div>
+                <div class="exp-meta">Jan 2021 – June 2023</div>
+              </div>
+              <ul class="exp-list">
+                <li>Designed ML-backed risk-scoring for wallet and payment flows, improving fraud-detection recall by 20% at sub-700ms latency.</li>
+                <li>Built Kafka microservices handling 5M+ transactions/day with 99.9% uptime and robust retry/circuit-breaking patterns.</li>
+                <li>Developed customer-behavior scoring models, increasing promo-targeting accuracy by 25% and supporting marketing workflows.</li>
+                <li>Migrated NLP and analytics workloads to GPU-optimized ONNX inference for 2× faster processing under peak load.</li>
+                <li>Built ETL jobs and internal dashboards for real-time visibility into payments, settlements, and anomalies.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Case Studies -->
+      <section id="case-studies">
+        <div class="shell">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Case Studies</div>
+              <h2 class="section-title">How the pieces come together</h2>
+            </div>
+            <p class="section-sub">
+              Two examples of end-to-end thinking: from architecture to measurable impact.
+            </p>
+          </div>
+
+          <div class="case-grid">
+            <article class="case-card">
+              <div class="case-label">Case Study · Fraud & Risk</div>
+              <h3>Modernizing fraud detection for wallet transactions</h3>
+              <p class="case-metric">Result: +20% recall, stable latency, and fewer undetected issues.</p>
+              <ul class="case-points">
+                <li>Reworked feature pipelines and training flows, cutting retraining time and aligning signals with real-time Kafka streams.</li>
+                <li>Served ONNX-optimized models behind FastAPI services with async I/O and Redis caching for consistent low-latency scoring.</li>
+                <li>Added drift detection and anomaly checks, reducing undetected payment issues and improving operational visibility.</li>
+              </ul>
+            </article>
+
+            <article class="case-card">
+              <div class="case-label">Case Study · RAG & Automation</div>
+              <h3>LLM-powered workflows for compliance investigations</h3>
+              <p class="case-metric">Result: Analyst review time cut by ~50% and clearer case summaries.</p>
+              <ul class="case-points">
+                <li>Designed a RAG layer that combined transactional data, case notes, and policy docs into a single retrieval and summarization surface.</li>
+                <li>Orchestrated multi-agent flows to gather context, propose actions, and generate human-reviewable summaries.</li>
+                <li>Worked with security and compliance teams to add RBAC, encrypted data paths, and audit logs for safe deployment.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="shell">
+          <div class="section-header">
+            <div>
+              <div class="section-kicker">Contact</div>
+              <h2 class="section-title">Let’s connect</h2>
+            </div>
+            <p class="section-sub">
+              Open to roles where AI is central to the product: fraud, risk, automation, and LLM applications at scale.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-row">
+                <div class="contact-label">Email</div>
+                <div class="contact-value">
+                  <a href="mailto:pavanbannam10@gmail.com">
+                    pavanbannam10@gmail.com
+                  </a>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-label">Phone</div>
+                <div class="contact-value">
+                  <a href="tel:+13346864470">+1 (334) 686-4470</a>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-label">Links</div>
+                <div class="contact-links">
+                  <a class="contact-pill" href="https://github.com/Pavanannambhotla" target="_blank" rel="noreferrer">GitHub</a>
+                  <a class="contact-pill" href="www.linkedin.com/in/pavanbharadwaja" target="_blank" rel="noreferrer">LinkedIn</a>
+                </div>
+              </div>
+              <p style="font-size:0.83rem; color:var(--text-soft); margin-top:0.4rem;">
+                Short message that includes the problem, team, and impact you’re aiming for is always appreciated.
+              </p>
+            </div>
+
+            <div class="contact-card">
+              <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks for reaching out! Please use the email link to contact me directly.');">
+                <div class="field-group">
+                  <label for="name">Name</label>
+                  <input id="name" type="text" placeholder="Your name" />
+                </div>
+                <div class="field-group">
+                  <label for="email">Email</label>
+                  <input id="email" type="email" placeholder="you@example.com" />
+                </div>
+                <div class="field-group">
+                  <label for="message">Message</label>
+                  <textarea id="message" placeholder="What would you like to discuss?"></textarea>
+                </div>
+                <button type="submit" class="btn-primary">
+                  <span>Send Message</span>
+                  <span>➜</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <footer class="footer">
+            <div class="footer-inner">
+              <span>© <span id="year"></span> Pavan Bharadwaj Annambhotla.</span>
+              <span>Built with focus on <span class="highlight">clarity, reliability, and measurable impact.</span></span>
+            </div>
+          </footer>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+
